@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
 
+  <body class="quiz-bg">
+    <div class="battleArea">
+      <!-- dito mo edit character ng hero -->
+      <div class="heroSide">
+        <img src="/images/Character/IdleHero.gif" class="character" />
+        <div class="healthBar">
+          <div id="heroHealth" class="healthPoints"></div>
+        </div>
+      </div>
+
+      <!-- dito mo edit character ng enemy -->
+      <div class="enemySide">
+        <img src="/images/Character/orc-idle.gif" class="character" />
+        <div class="healthBar">
+          <div id="enemyHealth" class="healthPoints"></div>
+
+
   <body>
     <div class="parentQuiz">
 
@@ -33,13 +50,26 @@
           <div class="healthBar">
             <div id="heroHealth" class="healthPoints"></div>
           </div>
+
         </div>
+
+
+    <!-- displayed question and answers part -->
+    <div id="level-page" class="quiz-container">
+      <div id="question-container">
+        <div id="question-text"></div>
+        <div id="answers">
+          <button onclick="selectAnswer(0)">Answer 1</button>
+          <button onclick="selectAnswer(1)">Answer 2</button>
+          <button onclick="selectAnswer(2)">Answer 3</button>
+          <button onclick="selectAnswer(3)">Answer 4</button>
 
         <div class="enemySide">
           <img src="/brrad-quiz-game/images/Character/cat/cat-idle.gif" class="characterCat" />
           <div class="healthBar">
             <div id="enemyHealth" class="healthPoints"></div>
           </div>
+          
         </div>
       </div>
 
