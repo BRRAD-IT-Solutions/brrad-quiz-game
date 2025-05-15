@@ -1,3 +1,27 @@
+/* Background */
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  opacity: 1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+  }
+}
+
+
+button {
+  background-color: rgb(178, 178, 132);
+  box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.397);
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -10,6 +34,7 @@ body {
 
 .page {
   text-align: center;
+  background: none;
 }
 
 /* Start Page */
@@ -18,19 +43,66 @@ body {
   background-size: cover;
 }
 
-/* Quiz Page */
-.quiz-bg {
-  background: linear-gradient(135deg, #d20000 0%, #c3d272 100%) no-repeat center
-    center fixed;
-  background-size: cover;
+.parentMain {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient( rgba(63, 62, 66, 0.3),rgba(12,3,51,0.3));
+  position: relative;
+  padding: 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
+/* start page button */
+
+.startButton {
+  height: 80px;
+  border-radius: 25px;
+  opacity: 0.9;
+}
+
+.startButton:hover {
+  padding: 3px;
+  height: 78px;
+  opacity: 1;
+}
+
+.buttonImage {
+  align-self: center; 
+  border-radius: 40px; 
+  border: none; 
+  background: none; 
+  height: 80px; 
+  padding: 0; 
+  width: 255px;
+
+}
+
+
+/* Quiz Page */
 
 .battleArea {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20%;
   width: 100%;
+  margin-top: 10.5%;
   padding: 20px 40px;
   box-sizing: border-box;
+}
+
+.parentQuiz {
+  width: 100%;
+  height: 120vh;
+  background-image: linear-gradient( rgba(63, 62, 66, 0.3),rgba(12,3,51,0.3));
+  position: relative;
+  display: flex;
+  flex-direction: column;;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
 }
 
 .heroSide {
@@ -43,18 +115,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100px;
+  margin-top: auto;
 }
 
-.character {
-  width: 500px;
-  height: 500px;
+.characterDog {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: auto;
+}
+
+.characterCat {
+  bottom: 0;
+  width: 100px;
+  height: 100px;
   display: block;
   margin: auto;
 }
 
 .healthBar {
-  width: 500px;
-  height: 50px;
+  width: 300px;
+  height: 20px;
   border: 2px solid #000;
   background-color: #d20000;
 }
@@ -76,7 +158,12 @@ button {
   margin-bottom: 20px;
   font-size: 24px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(178, 178, 132);
+  font-family: Arial, Helvetica, sans-serif;
   width: 300px;
   border-radius: 10px;
+  border: 3px solid black;
+  box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.397);
 }
+
+
