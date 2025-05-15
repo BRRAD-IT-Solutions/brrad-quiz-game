@@ -56,7 +56,17 @@ body {
   width: 500px;
   height: 50px;
   border: 2px solid #000;
-  background-color: #d20000;
+  background-color: #363636;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.healthPoints {
+  height: 100%;
+  background-color: #2b9e08;
+  width: 100%;
+  transform: width 2s ease;
 }
 
 button {
@@ -65,7 +75,13 @@ button {
   margin: 10px;
 }
 
-/* Questions naka #kasi specific tinawag*/
+.quiz-container {
+  text-align: center;
+  margin-top: 0px;
+  width: 100%;
+}
+
+/* Questions naka #kasi specific tinawag id*/
 #question-container {
   display: flex;
   flex-direction: column;

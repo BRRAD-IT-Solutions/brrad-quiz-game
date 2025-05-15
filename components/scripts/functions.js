@@ -1,4 +1,6 @@
 let Level = 0;
+let heroHealthPoints = 100;
+let enemyHealthPoints = 100;
 const questions = [
   {
     question: "What is 2 + 2?",
@@ -24,6 +26,7 @@ const questions = [
 
 window.onload = function () {
   showQuestion();
+  loadHealth();
 };
 // to show question
 function showQuestion() {
@@ -40,18 +43,53 @@ function showQuestion() {
 
 function selectAnswer(answerIndex) {
   const question = questions[Level];
+  // enemy healthbar functions
   if (answerIndex === question.correct) {
+    enemyHealthPoints -= 20;
+    loadHealth();
+
+    if (enemyHealthPoints <= 0) {
+      setTimeout(() => {
+        alert("You win nigga!");
+        endGame();
+      }, 500);
+      return;
+    }
+    // function to go to next question
     Level++;
     if (Level < questions.length) {
       showQuestion();
     } else {
       endGame();
+      alert("You win!");
     }
-  } else {
-    alert("Wrong answer! Try again.");
   }
+
+  // hero healthbar functions
+  else {
+    heroHealthPoints -= 20;
+    loadHealth();
+    if (heroHealthPoints <= 0) {
+      setTimeout(() => {
+        endGame();
+        alert("You Lose niiga!");
+      }, 500);
+      return;
+    }
+    alert("Wrong Answer nigga");
+  }
+  loadHealth();
 }
 
+function loadHealth() {
+  const heroStatus = document.getElementById("heroHealth");
+  const enemyStatus = document.getElementById("enemyHealth");
+
+  heroStatus.style.width = heroHealthPoints + "%";
+  enemyStatus.style.width = enemyHealthPoints + "%";
+}
+
+// placeholder para sa ibang function pwedeng para sa score summary
 function endGame() {
   document.getElementById("level-page").style.display = "none";
   document.getElementById("end-page").style.display = "block";
@@ -59,7 +97,11 @@ function endGame() {
 
 function restartGame() {
   Level = 0;
+  heroHealthPoints = 100;
+  enemyHealthPoints = 100;
+
   document.getElementById("end-page").style.display = "none";
   document.getElementById("level-page").style.display = "block";
   showQuestion();
+  loadHealth();
 }
