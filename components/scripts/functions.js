@@ -26,33 +26,38 @@ const questions = [
   },
   {
     question: "complete this word N_gger",
-    answers: [
-      "nagger",
-      "nogger",
-      "nugger",
-      "nigger",
-    ],
+    answers: ["nagger", "nogger", "nugger", "nigger"],
     correct: 3,
   },
   {
     question: "Si Aj ba ay nagsasabun ng puwit?",
-    answers: [
-      "yes",
-      "no",
-      "maybe",
-      "maybe",
-    ],
+    answers: ["yes", "no", "maybe", "maybe"],
     correct: 2,
   },
   {
     question: "Si jerra ba ay sasama sa ek?",
-    answers: [
-      "hindi",
-      "ayaw",
-      "hindi nyo ka vibe",
-      "ayaw talaga ni ramzel",
-    ],
+    answers: ["hindi", "ayaw", "hindi nyo ka vibe", "ayaw talaga ni ramzel"],
     correct: 2,
+  },
+  {
+    question: "Sample question # 7",
+    answers: ["0", "1", "2", "3"],
+    correct: 0,
+  },
+  {
+    question: "When is ramzel birthday?",
+    answers: ["June 1", "June 3", "July 3", "July 1"],
+    correct: 3,
+  },
+  {
+    question: "Sample question # 9",
+    answers: ["0", "1", "4", "3"],
+    correct: 0,
+  },
+  {
+    question: "sample question # 10",
+    answers: ["0", "1", "2", "3"],
+    correct: 0,
   },
 ];
 
@@ -114,10 +119,29 @@ function selectAnswer(answerIndex) {
 }
 
 function loadHealth() {
-  
-
   heroStatus.style.width = heroHealthPoints + "%";
   enemyStatus.style.width = enemyHealthPoints + "%";
+
+  // color change if damaged hero
+  if (heroHealthPoints <= 40) {
+    heroStatus.style.backgroundColor = "orange";
+
+    if (heroHealthPoints <= 20) {
+      heroStatus.style.backgroundColor = "red";
+    }
+  } else {
+    heroStatus.style.backgroundColor = "lime";
+  }
+  // color change if damaged enemy
+  if (enemyHealthPoints <= 40) {
+    enemyStatus.style.backgroundColor = "orange";
+
+    if (enemyHealthPoints <= 20) {
+      enemyStatus.style.backgroundColor = "red";
+    }
+  } else {
+    enemyStatus.style.backgroundColor = "lime";
+  }
 }
 
 // placeholder para sa ibang function pwedeng para sa score summary
