@@ -1,6 +1,8 @@
 let Level = 0;
 let heroHealthPoints = 100;
 let enemyHealthPoints = 100;
+const heroStatus = document.getElementById("heroHealth");
+const enemyStatus = document.getElementById("enemyHealth");
 const questions = [
   {
     question: "What is 2 + 2?",
@@ -21,6 +23,36 @@ const questions = [
       "Whole World Web",
     ],
     correct: 0,
+  },
+  {
+    question: "complete this word N_gger",
+    answers: [
+      "nagger",
+      "nogger",
+      "nugger",
+      "nigger",
+    ],
+    correct: 3,
+  },
+  {
+    question: "Si Aj ba ay nagsasabun ng puwit?",
+    answers: [
+      "yes",
+      "no",
+      "maybe",
+      "maybe",
+    ],
+    correct: 2,
+  },
+  {
+    question: "Si jerra ba ay sasama sa ek?",
+    answers: [
+      "hindi",
+      "ayaw",
+      "hindi nyo ka vibe",
+      "ayaw talaga ni ramzel",
+    ],
+    correct: 2,
   },
 ];
 
@@ -82,8 +114,7 @@ function selectAnswer(answerIndex) {
 }
 
 function loadHealth() {
-  const heroStatus = document.getElementById("heroHealth");
-  const enemyStatus = document.getElementById("enemyHealth");
+  
 
   heroStatus.style.width = heroHealthPoints + "%";
   enemyStatus.style.width = enemyHealthPoints + "%";
