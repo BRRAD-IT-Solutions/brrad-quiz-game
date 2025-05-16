@@ -40,9 +40,9 @@ const questions = [
     correct: 2,
   },
   {
-    question: "Si jerra ba ay sasama sa ek?",
-    answers: ["hindi", "ayaw", "hindi nyo ka vibe", "ayaw talaga ni ramzel"],
-    correct: 2,
+    question: "Sample question # 7",
+    answers: ["0", "1", "2", "3"],
+    correct: 0,
   },
   {
     question: "When is ramzel birthday?",
@@ -121,6 +121,27 @@ function selectAnswer(answerIndex) {
 function loadHealth() {
   heroStatus.style.width = heroHealthPoints + "%";
   enemyStatus.style.width = enemyHealthPoints + "%";
+
+  // color change if damaged hero
+  if (heroHealthPoints <= 40) {
+    heroStatus.style.backgroundColor = "orange";
+
+    if (heroHealthPoints <= 20) {
+      heroStatus.style.backgroundColor = "red";
+    }
+  } else {
+    heroStatus.style.backgroundColor = "lime";
+  }
+  // color change if damaged enemy
+  if (enemyHealthPoints <= 40) {
+    enemyStatus.style.backgroundColor = "orange";
+
+    if (enemyHealthPoints <= 20) {
+      enemyStatus.style.backgroundColor = "red";
+    }
+  } else {
+    enemyStatus.style.backgroundColor = "lime";
+  }
 }
 
 // placeholder para sa ibang function pwedeng para sa score summary
