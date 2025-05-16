@@ -51,7 +51,7 @@ const questions = [
   },
   {
     question: "Sample question # 9",
-    answers: ["0", "1", "2", "3"],
+    answers: ["0", "1", "4", "3"],
     correct: 0,
   },
   {
