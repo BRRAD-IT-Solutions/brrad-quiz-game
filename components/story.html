@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRRAD Quiz Game</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <style>
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .start-img {
+        max-width: 10vw;
+        height: auto;
+        filter: brightness(0.8);
+        animation: pulse 1.5s infinite;
+        transform-origin: center;
+        transition: filter 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .start-img:hover {
+        filter: brightness(1);
+        transform: scale(1.08);
+      }
+      .story-background {
+        display: none;
+        position: absolute; /* position it behind */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw; /* responsive width */
+        max-width: 600px; /* same as text box max-width */
+        aspect-ratio: 3 / 2; /* adjust to your image aspect ratio */
+        background-image: url("/images/icons/questLetter.png"); /* your bg image */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0; /* behind text box */
+        filter: brightness(0.8); /* optional darken */
+        border-radius: 20px; /* same rounding as text box */
+      }
+
+      .textBox {
+        display: none;
+        margin-top: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px 20px;
+        border-radius: 20px;
+        max-width: 600px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .textBox.show {
+        display: block;
+      }
+
+      .start-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .start-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body class="start-bg">
+    <div class="parentQuiz" style="text-align: center">
+      <img
+        src="/images/icons/ScrollWithQuest.png"
+        alt="Start Game"
+        class="start-img"
+        onclick="showStory()"
+      />
+
+      <div id="storyBg" class="story-background"></div>
+
+      <div id="storyBox" class="textBox">
+        Find my missing dog please!.<br />
+        I lost him in the forest and I can't find him anywhere. <br />
+        He might have went to the witch cats Home!<br />
+        <br />
+        You fucking nigga!<br />
+        <br /><br />
+        <button class="start-btn" onclick="startGame()">Start Quiz</button>
+      </div>
+    </div>
+
+    <script>
+      function showStory() {
+        document.querySelector(".start-img").style.display = "none";
+        setTimeout(() => {
+          document.getElementById("storyBg").style.display = "block";
+        });
+
+        setTimeout(() => {
+          document.getElementById("storyBox").classList.add("show");
+        }, 1500);
+      }
+
+      function startGame() {
+        window.location.href = "quiz.html";
+      }
+    </script>
+  </body>
+</html>
