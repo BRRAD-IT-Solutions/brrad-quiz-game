@@ -43,6 +43,16 @@ body {
   background-size: cover;
 }
 
+.start-bg {
+  background-image: url("/images/Story.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 .parentMain {
   width: 100%;
   height: 100vh;
