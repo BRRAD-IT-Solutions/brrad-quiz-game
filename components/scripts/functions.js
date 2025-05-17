@@ -82,11 +82,13 @@ function selectAnswer(answerIndex) {
   const question = questions[Level];
   // enemy healthbar functions
   if (answerIndex === question.correct) {
+    dogSide();
     enemyHealthPoints -= 20;
     loadHealth();
 
     if (enemyHealthPoints <= 0) {
       setTimeout(() => {
+        catSideDeath();
         alert("You win nigga!");
         endGame();
       }, 500);
@@ -160,3 +162,86 @@ function restartGame() {
   showQuestion();
   loadHealth();
 }
+
+// for animation 
+
+
+
+function dogSide() {
+  const characterDog = document.getElementById('characterDog');
+  const characterCat = document.querySelector('.characterCat');
+
+  // Step 1: Dog runs to the cat
+  characterDog.src = '/vscode/JavaScript/animation/animation2/dog-walk.gif';
+  characterDog.classList.remove('run-animation', 'return-animation');
+  void characterDog.offsetWidth;  // Trigger reflow
+  characterDog.classList.add('run-animation');
+
+  // Step 2: Dog attacks
+  characterDog.addEventListener('animationend', () => {
+    characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-attack.gif';
+
+    // Step 3: Cat gets damaged
+    setTimeout(() => {
+      characterCat.src = '/brrad-quiz-game/images/Character/cat/cat-damage (2).gif';
+
+      // Step 3.1: Cat returns to idle
+      setTimeout(() => {
+        characterCat.src = '/brrad-quiz-game/images/Character/cat/cat-idle.gif';
+      }, 1200); // Adjust this to match your damage animation duration
+
+      // Step 4: Dog walks back
+      setTimeout(() => {
+        characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-walkBack.gif';
+        characterDog.classList.remove('run-animation', 'return-animation');
+        void characterDog.offsetWidth;
+        characterDog.classList.add('return-animation');
+
+        // Step 5: Dog becomes idle again
+        characterDog.addEventListener('animationend', () => {
+          characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-idle.gif'; // Corrected the typo here
+        }, { once: true });
+
+      }, 800); // Wait after attack before walking back
+
+    }, 500); // Delay before cat "dies"
+  }, { once: true });
+}
+
+function catSideDeath() {
+  const characterDog = document.getElementById('characterDog');
+  const characterCat = document.querySelector('.characterCat');
+
+  // Step 1: Dog runs to the cat
+  characterDog.src = '/vscode/JavaScript/animation/animation2/dog-walk.gif';
+  characterDog.classList.remove('run-animation', 'return-animation');
+  void characterDog.offsetWidth;  // Trigger reflow
+  characterDog.classList.add('run-animation');
+
+  // Step 2: Dog attacks
+  characterDog.addEventListener('animationend', () => {
+    characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-attack.gif';
+
+    // Step 3: Cat gets death
+    setTimeout(() => {
+      characterCat.src = '/brrad-quiz-game/images/Character/cat/cat-dead.gif';
+
+
+      // Step 3: Dog walks back
+      setTimeout(() => {
+        characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-walkBack.gif';
+        characterDog.classList.remove('run-animation', 'return-animation');
+        void characterDog.offsetWidth;
+        characterDog.classList.add('return-animation');
+
+        // Step 5: Dog becomes idle again
+        characterDog.addEventListener('animationend', () => {
+          characterDog.src = '/brrad-quiz-game/images/Character/dog/dog-idle.gif'; // Corrected the typo here
+        }, { once: true });
+
+      }, 800); // Wait after attack before walking back
+
+    }, 500); // Delay before cat "dies"
+  }, { once: true });
+}
+
