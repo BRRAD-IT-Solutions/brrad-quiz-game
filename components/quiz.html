@@ -6,12 +6,10 @@
     <title>Quiz Game</title>
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
-
+  <body>
     <div class="parentQuiz">
-
       <video autoplay loop muted plays-inline class="back-video">
-        <source
-          src="/images/momodora.1920x1080.mp4"type="video/mp4"/>
+        <source src="/images/momodora.1920x1080.mp4" type="video/mp4" />
       </video>
 
       <div id="level-page" class="page">
@@ -32,25 +30,22 @@
       </div>
 
       <div class="battleArea">
-
         <div class="heroSide">
-          <img src="/images/Character/dog/dog-idle.gif" class="characterDog" />
           <div class="healthBar">
             <div id="heroHealth" class="healthPoints"></div>
           </div>
+          <img src="/images/Character/dog/dog-idle.gif" class="characterDog" />
         </div>
 
         <div class="enemySide">
-          <img src="/images/Character/cat/cat-idle.gif" class="characterCat" />
           <div class="healthBar">
             <div id="enemyHealth" class="healthPoints"></div>
           </div>
+          <img src="/images/Character/cat/cat-idle.gif" class="characterCat" />
         </div>
-        
       </div>
 
-
-
+      <div class="ground"></div>
     </div>
 
     <script src="scripts/functions.js"></script>
