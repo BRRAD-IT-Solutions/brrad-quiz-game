@@ -148,7 +148,7 @@ function loadHealth() {
   }
 }
 
-// placeholder para sa ibang function pwedeng para sa score summary
+// for restart game
 function endGame() {
   document.getElementById("level-page").style.display = "none";
   document.getElementById("end-page").style.display = "block";
@@ -162,12 +162,28 @@ function restartGame() {
   document.getElementById("characterDog").style.display = "block";
   document.getElementById("characterCat").style.display = "block";
 
+  document.querySelector(".heroHealthBar").style.visibility = "visible";
+  document.querySelector(".enemyHealthBar").style.visibility = "visible";
+
   document.getElementById("end-page").style.display = "none";
   document.getElementById("level-page").style.display = "block";
   showQuestion();
   loadHealth();
 }
 
+function nextLevel() {
+  const levelPage = document.getElementById("level-page");
+  const continuePage = document.getElementById("continue-page");
+
+  levelPage.style.display = "none";
+  continuePage.style.display = "block";
+
+  setTimeout(() => {
+    continuePage.classList.add("show");
+  }, 50);
+}
+
+// buttons disable when animation
 function setButtonsEnabled(enabled) {
   const buttons = Array.from(document.getElementById("answers").children);
   buttons.forEach((button) => {
@@ -244,8 +260,10 @@ function catSideDeath() {
       setTimeout(() => {
         characterCat.src = "/images/Character/cat/cat-dead.gif";
         setTimeout(() => {
-          characterCat.style.display = "none"; // disappaer after death
-        }, 1000);
+          characterCat.style.display = "none";
+          document.querySelector(".heroHealthBar").style.visibility = "hidden";
+          document.querySelector(".enemyHealthBar").style.visibility = "hidden";
+        }, 500);
 
         // Step 4: Dog walks back
         setTimeout(() => {
@@ -260,8 +278,7 @@ function catSideDeath() {
             () => {
               characterDog.src = "/images/Character/dog/dog-idle.gif";
               setTimeout(() => {
-                alert("You win!");
-                endGame();
+                nextLevel();
               }, 500);
             },
             { once: true }
@@ -345,8 +362,10 @@ function dogSideDeath() {
       setTimeout(() => {
         characterDog.src = "/images/Character/dog/dog-dead.gif";
         setTimeout(() => {
-          characterDog.style.display = "none"; // disappaer after death
-        }, 1000);
+          characterDog.style.display = "none";
+          document.querySelector(".heroHealthBar").style.visibility = "hidden";
+          document.querySelector(".enemyHealthBar").style.display = "none";
+        }, 500);
 
         // Step 4: Cat walks back
         setTimeout(() => {
