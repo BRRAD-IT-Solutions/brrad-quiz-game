@@ -31,10 +31,26 @@ body {
   align-items: center;
 }
 
+.gradientText {
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20vh;
+}
+
 .page {
-  text-align: center;
-  background: none;
+  font-family: "Metal Mania", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* <-- This vertically centers content */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%); /* <-- Center both axes */
   z-index: 4;
+  text-align: center;
+  gap: 0px; /* Optional: adds space between h1 and button */
 }
 
 /* Start Page */
@@ -154,7 +170,16 @@ body {
   image-rendering: pixelated;
 }
 
-.healthBar {
+.heroHealthBar {
+  width: 300px;
+  height: 20px;
+  border: 2px solid #000;
+  background-color: #363636;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.enemyHealthBar {
   width: 300px;
   height: 20px;
   border: 2px solid #000;
@@ -213,6 +238,36 @@ button {
   border-radius: 10px;
   border: 3px solid black;
   box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.397);
+}
+
+#continue-page {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%) scale(0.9);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 10;
+}
+
+#continue-page.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#continue-page.show {
+  animation: fadeInScale 0.6s ease-out forwards;
 }
 
 /* Animation for character */

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Game</title>
     <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="parentQuiz">
@@ -29,9 +33,15 @@
         <button onclick="restartGame()">Restart</button>
       </div>
 
+      <!-- Add story for ending goodboy -->
+      <div id="continue-page" class="page" style="display: none">
+        <h1 class="gradientText">You Win!</h1>
+        <button onclick="nextLevel()">Continue</button>
+      </div>
+
       <div class="battleArea">
         <div class="heroSide">
-          <div class="healthBar">
+          <div class="heroHealthBar">
             <div id="heroHealth" class="healthPoints"></div>
           </div>
           <img
@@ -43,7 +53,7 @@
         </div>
 
         <div class="enemySide">
-          <div class="healthBar">
+          <div class="enemyHealthBar">
             <div id="enemyHealth" class="healthPoints"></div>
           </div>
           <img
