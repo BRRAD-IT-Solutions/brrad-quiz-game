@@ -5,43 +5,38 @@ const heroStatus = document.getElementById("heroHealth");
 const enemyStatus = document.getElementById("enemyHealth");
 const questions = [
   {
-    question: "What is 2 + 2?",
-    answers: ["3", "4", "5", "6"],
-    correct: 1,
-  },
-  {
-    question: "What is the capital of Quezon Province?",
-    answers: ["Lucena", "Sariaya", "Lucban", "Tayabas"],
-    correct: 0,
-  },
-  {
-    question: "What is the meaning of WWW?",
-    answers: [
-      "World Wide Web",
-      "World Width Wide",
-      "World Wild Web",
-      "Whole World Web",
-    ],
-    correct: 0,
-  },
-  {
-    question: "complete this word N_gger",
-    answers: ["nagger", "nogger", "nugger", "nigger"],
+    question: "Where did you last see your dog?",
+    answers: ["House", "Town", "Ramzel's", "Forrest"],
     correct: 3,
   },
   {
-    question: "Si Aj ba ay nagsasabun ng puwit?",
+    question: "What is the dogs name?",
+    answers: ["Gucci", "Tommy", "Tofu", "Tobi"],
+    correct: 3,
+  },
+  {
+    question: "What was the color of the ribbon on the scroll?",
+    answers: ["Green", "Blue", "Red", "orange"],
+    correct: 2,
+  },
+  {
+    question: "Was the bridge broken in the start screen?",
+    answers: ["Yes", "No", "Maybe", "I don't know"],
+    correct: 0,
+  },
+  {
+    question: "Was the scroll sealed when you found it?",
     answers: ["yes", "no", "maybe", "maybe"],
-    correct: 2,
+    correct: 1,
   },
   {
-    question: "Si jerra ba ay sasama sa ek?",
-    answers: ["hindi", "ayaw", "hindi nyo ka vibe", "ayaw talaga ni ramzel"],
-    correct: 2,
+    question: "What was the year on the scroll?",
+    answers: ["1902", "2025", "1660", "1602"],
+    correct: 3,
   },
   {
-    question: "Sample question # 7",
-    answers: ["0", "1", "2", "3"],
+    question: "What am I known as?",
+    answers: ["Mind's Witch", "Knowledge Witch", "The Witcher", "Ramzel"],
     correct: 0,
   },
   {
@@ -50,14 +45,34 @@ const questions = [
     correct: 3,
   },
   {
-    question: "Sample question # 9",
-    answers: ["0", "1", "4", "3"],
+    question: "Whats my name?",
+    answers: ["Sex", "Sphinx", "Syntax", "Six"],
+    correct: 2,
+  },
+  {
+    question: "Why do birds suddenly ____",
+    answers: ["career", "azir", "martyr", "appear"],
+    correct: 3,
+  },
+  {
+    question: "The more you take, the more you leave behind. What am I?",
+    answers: ["footsteps", "money", "time", "space"],
     correct: 0,
   },
   {
-    question: "sample question # 10",
-    answers: ["0", "1", "2", "3"],
+    question: "What tastes much better than it smells?",
+    answers: ["Yogurt", "Lanka", "Toungue", "Nose"],
+    correct: 2,
+  },
+  {
+    question: "What was at the bottom of the letter?",
+    answers: ["Jb", "Aj", "ImGAy", "Jj"],
     correct: 0,
+  },
+  {
+    question: "What's your name?",
+    answers: ["Momonga", "Momonari", "Momodora", "Momoniku"],
+    correct: 2,
   },
 ];
 
@@ -84,7 +99,7 @@ function selectAnswer(answerIndex) {
   if (answerIndex === question.correct) {
     setButtonsEnabled(false);
     dogSide();
-    enemyHealthPoints -= 100;
+    enemyHealthPoints -= 10;
     loadHealth();
 
     if (enemyHealthPoints <= 0) {
@@ -100,7 +115,6 @@ function selectAnswer(answerIndex) {
       }, 2500);
     } else {
       endGame();
-      alert("You win!");
     }
   }
 
@@ -108,13 +122,12 @@ function selectAnswer(answerIndex) {
   else {
     catSide();
     setButtonsEnabled(false);
-    heroHealthPoints -= 100;
+    heroHealthPoints -= 25;
     loadHealth();
     if (heroHealthPoints <= 0) {
       dogSideDeath();
       return;
     }
-    alert("Wrong Answer nigga");
     setTimeout(() => {
       setButtonsEnabled(true);
     }, 2500);
@@ -383,7 +396,6 @@ function dogSideDeath() {
             () => {
               characterCat.src = "/images/Character/cat/cat-idle.gif";
               setTimeout(() => {
-                alert("You lose!");
                 endGame();
               }, 500);
             },

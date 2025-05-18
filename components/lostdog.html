@@ -11,7 +11,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
       }
       .dialogueBox {
         height: 120px;
@@ -21,21 +20,17 @@
         text-align: center;
         border-radius: 20px;
         visibility: visible;
-
       }
       .characterCat {
         margin-top: 100px;
         padding-left: 305px;
       }
 
-
       .characterScene {
         height: 10px;
         display: flex;
         gap: 530px;
         position: relative;
-        
-
       }
       .characterDog1 {
         position: relative;
@@ -46,7 +41,6 @@
         margin: auto;
         image-rendering: pixelated;
       }
-
     </style>
   </head>
   <body>
@@ -54,19 +48,25 @@
       <video autoplay loop muted plays-inline class="back-video">
         <source src="/images/momodora.1920x1080.mp4" type="video/mp4" />
       </video>
-  
-      <div id="dialogueBox" class="dialogueBox">
-        <p id="dialogueText" style="padding-top: 32px;">tobi!!</p>
-      </div>
-      <button id='nextBtn'onclick="nextScene()" style="visibility: visible;width: 100px;">...</button>
-      <button id="quizBtn" onclick="quizBtn()" style="visibility: hidden;">Start Quiz</button>
-      
-      <div class="characterScene">
-        <img src="/images/Character/cat/cat-idle.gif" class="characterCat">
-      </div>
 
+      <div id="dialogueBox" class="dialogueBox">
+        <p id="dialogueText" style="padding-top: 32px">tobi!!</p>
+      </div>
+      <button
+        id="nextBtn"
+        onclick="nextScene()"
+        style="visibility: visible; width: 100px"
+      >
+        ...
+      </button>
+      <button id="quizBtn" onclick="quizBtn()" style="visibility: hidden">
+        Start Quiz
+      </button>
+
+      <div class="characterScene">
+        <img src="/images/Character/cat/cat-idle.gif" class="characterCat" />
+      </div>
     </div>
-   
 
     <script>
       let scene = 0;
@@ -83,26 +83,24 @@
         "Cat: That’s not your dog. You're hallucinating!",
         "Momodora: He sounds like my Tobi... he gotta be him.",
         "Cat: No young lady, wake up your or else you gonna be end up death the hell out of here.",
-        "Momodora: Okay, if Tobi isn’t real, I want him to answer my question so please let him out."
+        "Momodora: Okay, if Tobi isn’t real, I want him to answer my question so please let him out.",
       ];
-  
+
       function nextScene() {
-        const textElement = document.getElementById('dialogueText');
+        const textElement = document.getElementById("dialogueText");
         scene++;
         if (scene < dialogue.length) {
           textElement.textContent = dialogue[scene];
         } else {
-          document.getElementById('dialogueBox').style.visibility = 'hidden';
-          document.getElementById('quizBtn').style.visibility = 'visible';
-          document.getElementById('nextBtn').style.visibility = 'hidden';
+          document.getElementById("dialogueBox").style.visibility = "hidden";
+          document.getElementById("quizBtn").style.visibility = "visible";
+          document.getElementById("nextBtn").style.visibility = "hidden";
         }
-    
       }
 
-      function quizBtn () {
-        window.location.href = "quiz.html"
+      function quizBtn() {
+        window.location.href = "quiz.html";
       }
-
     </script>
   </body>
 </html>

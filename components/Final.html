@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRRAD Quiz Game</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <style>
+      /* Fullscreen video background container */
+      .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .back-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Centered container */
+      .parentQuiz {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Transparent button with no borders */
+      .start-button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: transform 0.3s ease, opacity 0.001s ease;
+        color: transparent;
+      }
+
+      .start-button img {
+        width: 255px;
+        height: 80px;
+        display: block;
+      }
+
+      .start-button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      .start-button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Video background -->
+    <div class="video-container">
+      <video autoplay loop muted playsinline class="back-video">
+        <source
+          src="/images/Monster Hunter_ World Title Screen (PC, PS4, Xbox One).mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Start button -->
+    <div class="parentQuiz">
+      <button
+        onclick="startGame()"
+        class="start-button"
+        aria-label="Start Game"
+      >
+        Restart
+      </button>
+    </div>
+
+    <script>
+      function startGame() {
+        window.location.href = "story.html";
+      }
+    </script>
+  </body>
+</html>

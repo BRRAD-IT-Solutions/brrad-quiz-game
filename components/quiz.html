@@ -9,6 +9,11 @@
       href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
       rel="stylesheet"
     />
+    <script>
+      function Final() {
+        window.location.href = "Final.html";
+      }
+    </script>
   </head>
   <body>
     <div class="parentQuiz">
@@ -29,14 +34,14 @@
       </div>
 
       <div id="end-page" class="page" style="display: none">
-        <h1>Game Over</h1>
+        <h1 class="gradientText">Game Over</h1>
         <button onclick="restartGame()">Restart</button>
       </div>
 
       <!-- Add story for ending goodboy -->
       <div id="continue-page" class="page" style="display: none">
         <h1 class="gradientText">You Win!</h1>
-        <button onclick="nextLevel()">Continue</button>
+        <button onclick="Final()">Continue</button>
       </div>
 
       <div class="battleArea">
