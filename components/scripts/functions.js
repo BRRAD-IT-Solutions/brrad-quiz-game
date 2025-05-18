@@ -84,7 +84,7 @@ function selectAnswer(answerIndex) {
   if (answerIndex === question.correct) {
     setButtonsEnabled(false);
     dogSide();
-    enemyHealthPoints -= 100;
+    enemyHealthPoints -= 10;
     loadHealth();
 
     if (enemyHealthPoints <= 0) {
@@ -108,7 +108,7 @@ function selectAnswer(answerIndex) {
   else {
     catSide();
     setButtonsEnabled(false);
-    heroHealthPoints -= 100;
+    heroHealthPoints -= 10;
     loadHealth();
     if (heroHealthPoints <= 0) {
       dogSideDeath();
