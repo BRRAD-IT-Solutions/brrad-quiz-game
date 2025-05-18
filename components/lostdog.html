@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lostDog</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <style>
+      .parentStory {
+        margin-top: 170px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+      }
+      .dialogueBox {
+        height: 120px;
+        width: 370px;
+        background-color: rgb(178, 178, 132);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.397);
+        text-align: center;
+        border-radius: 20px;
+        visibility: visible;
+
+      }
+      .characterCat {
+        margin-top: 100px;
+        padding-left: 305px;
+      }
+
+
+      .characterScene {
+        height: 10px;
+        display: flex;
+        gap: 530px;
+        position: relative;
+        
+
+      }
+      .characterDog1 {
+        position: relative;
+        animation: moveRight;
+        animation: 4s linear forwards;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        image-rendering: pixelated;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="parentStory">
+      <video autoplay loop muted plays-inline class="back-video">
+        <source src="/images/momodora.1920x1080.mp4" type="video/mp4" />
+      </video>
+  
+      <div id="dialogueBox" class="dialogueBox">
+        <p id="dialogueText" style="padding-top: 32px;">tobi!!</p>
+      </div>
+      <button id='nextBtn'onclick="nextScene()" style="visibility: visible;width: 100px;">...</button>
+      <button id="quizBtn" onclick="quizBtn()" style="visibility: hidden;">Start Quiz</button>
+      
+      <div class="characterScene">
+        <img src="/images/Character/cat/cat-idle.gif" class="characterCat">
+      </div>
+
+    </div>
+   
+
+    <script>
+      let scene = 0;
+      const dialogue = [
+        "Tobi!!!!",
+        "Momodora: Did you see my dog? His fur is bright gold and he likes to bite cats.",
+        "Cat: Nope. I haven’t seen somebody.",
+        "Momodora are you sure? im looking for him for 2 days.",
+        "Momodora: Somoene tell me to check witch cat",
+        "So he might be right here",
+        "Cat: Go somewhere else",
+        "woof!",
+        "Momodora: Tobi!!!!",
+        "Cat: That’s not your dog. You're hallucinating!",
+        "Momodora: He sounds like my Tobi... he gotta be him.",
+        "Cat: No young lady, wake up your or else you gonna be end up death the hell out of here.",
+        "Momodora: Okay, if Tobi isn’t real, I want him to answer my question so please let him out."
+      ];
+  
+      function nextScene() {
+        const textElement = document.getElementById('dialogueText');
+        scene++;
+        if (scene < dialogue.length) {
+          textElement.textContent = dialogue[scene];
+        } else {
+          document.getElementById('dialogueBox').style.visibility = 'hidden';
+          document.getElementById('quizBtn').style.visibility = 'visible';
+          document.getElementById('nextBtn').style.visibility = 'hidden';
+        }
+    
+      }
+
+      function quizBtn () {
+        window.location.href = "quiz.html"
+      }
+
+    </script>
+  </body>
+</html>
