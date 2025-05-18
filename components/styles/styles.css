@@ -223,13 +223,13 @@ button {
     transform: translateX(0);
   }
   to {
-    transform: translateX(160%);
+    transform: translateX(45vw);
   }
 }
 
 @keyframes runLeft {
   from {
-    transform: translateX(160px);
+    transform: translateX(45vw);
   }
   to {
     transform: translateX(0);
@@ -242,4 +242,33 @@ button {
 
 .return-animation {
   animation: runLeft 1s linear forwards;
+}
+
+/* for cat */
+
+/* for Cat attacking Dog */
+@keyframes catRunLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-45vw);
+  }
+}
+
+@keyframes catReturnRight {
+  from {
+    transform: translateX(-45vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.run-cat-animation {
+  animation: catRunLeft 1s linear forwards;
+}
+
+.return-cat-animation {
+  animation: catReturnRight 1s linear forwards;
 }
