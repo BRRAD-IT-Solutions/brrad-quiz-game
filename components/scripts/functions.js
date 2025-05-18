@@ -11,22 +11,22 @@ const questions = [
   },
   {
     question: "What is the dogs name?",
-    answers: ["Gucci", "Tommy", "Tofu", "Tobi"],
+    answers: ["Gucci", "Pnat", "Tofu", "Tobi"],
     correct: 3,
   },
   {
     question: "What was the color of the ribbon on the scroll?",
-    answers: ["Green", "Blue", "Red", "orange"],
+    answers: ["Green", "Blue", "Red", "Orange"],
     correct: 2,
   },
   {
     question: "Was the bridge broken in the start screen?",
-    answers: ["Yes", "No", "Maybe", "I don't know"],
+    answers: ["Yes", "No", "Maybe", "Dunno"],
     correct: 0,
   },
   {
     question: "Was the scroll sealed when you found it?",
-    answers: ["yes", "no", "maybe", "maybe"],
+    answers: ["Yes", "No", "Maybe", "Maybe"],
     correct: 1,
   },
   {
@@ -40,23 +40,23 @@ const questions = [
     correct: 0,
   },
   {
-    question: "When is ramzel birthday?",
-    answers: ["June 1", "June 3", "July 3", "July 1"],
-    correct: 3,
+    question: "Tobi Favorite Food",
+    answers: ["Crackers", "Chimken", "Nuggets", "Niku"],
+    correct: 0,
   },
   {
-    question: "Whats my name?",
+    question: "What is the Cat name?",
     answers: ["Sex", "Sphinx", "Syntax", "Six"],
     correct: 2,
   },
   {
-    question: "Why do birds suddenly ____",
-    answers: ["career", "azir", "martyr", "appear"],
+    question: "Do Tobi Like to bite Cats? ",
+    answers: ["Yes", "No", "Only human", "Only dog"],
     correct: 3,
   },
   {
     question: "The more you take, the more you leave behind. What am I?",
-    answers: ["footsteps", "money", "time", "space"],
+    answers: ["Footsteps", "Money", "Time", "Space"],
     correct: 0,
   },
   {
@@ -70,9 +70,14 @@ const questions = [
     correct: 0,
   },
   {
-    question: "What's your name?",
+    question: "What's Dog owner name?",
     answers: ["Momonga", "Momonari", "Momodora", "Momoniku"],
     correct: 2,
+  },
+  {
+    question: "How long the dog been missing",
+    answers: ["1day", "2days", "3days", "4days"],
+    correct: 1,
   },
 ];
 
