@@ -5,6 +5,61 @@ const heroStatus = document.getElementById("heroHealth");
 const enemyStatus = document.getElementById("enemyHealth");
 const questions = [
   {
+    question: "What was the year on the scroll?",
+    answers: ["1902", "2025", "1660", "1602"],
+    correct: 3,
+  },
+  {
+    question: "Cat is known as?",
+    answers: ["Mind's Witch", "Knowledge Witch", "The Witcher", "Ramzel"],
+    correct: 0,
+  },
+  {
+    question: "Tobi Favorite Food",
+    answers: ["Crackers", "Chimken", "Nuggets", "Niku"],
+    correct: 0,
+  },
+  {
+    question: "What was at the bottom of the letter?",
+    answers: ["Jb", "Aj", "ImGAy", "Jj"],
+    correct: 0,
+  },
+  {
+    question: "Was the bridge broken in the start screen?",
+    answers: ["Yes", "No", "Maybe", "Dunno"],
+    correct: 0,
+  },
+  {
+    question: "What is the Cat name?",
+    answers: ["Sex", "Sphinx", "Syntax", "Six"],
+    correct: 2,
+  },
+  {
+    question: "Do Tobi Like to bite Cats? ",
+    answers: ["Yes", "No", "Only human", "Only dog"],
+    correct: 0,
+  },
+  {
+    question: "How long the dog been missing",
+    answers: ["1day", "2days", "3days", "4days"],
+    correct: 1,
+  },
+  {
+    question: "The more you take, the more you leave behind. What am I?",
+    answers: ["Footsteps", "Money", "Time", "Space"],
+    correct: 0,
+  },
+  {
+    question: "Was the scroll sealed when you found it?",
+    answers: ["Yes", "No", "Maybe", "Maybe"],
+    correct: 1,
+  },
+  {
+    question: "What's Dog owner name?",
+    answers: ["Momonga", "Momonari", "Momodora", "Momoniku"],
+    correct: 2,
+  },
+  {
     question: "Where did you last see your dog?",
     answers: ["House", "Town", "Ramzel's", "Forrest"],
     correct: 3,
@@ -20,65 +75,12 @@ const questions = [
     correct: 2,
   },
   {
-    question: "Was the bridge broken in the start screen?",
-    answers: ["Yes", "No", "Maybe", "Dunno"],
-    correct: 0,
-  },
-  {
-    question: "Was the scroll sealed when you found it?",
-    answers: ["Yes", "No", "Maybe", "Maybe"],
-    correct: 1,
-  },
-  {
-    question: "What was the year on the scroll?",
-    answers: ["1902", "2025", "1660", "1602"],
-    correct: 3,
-  },
-  {
-    question: "What am I known as?",
-    answers: ["Mind's Witch", "Knowledge Witch", "The Witcher", "Ramzel"],
-    correct: 0,
-  },
-  {
-    question: "Tobi Favorite Food",
-    answers: ["Crackers", "Chimken", "Nuggets", "Niku"],
-    correct: 0,
-  },
-  {
-    question: "What is the Cat name?",
-    answers: ["Sex", "Sphinx", "Syntax", "Six"],
-    correct: 2,
-  },
-  {
-    question: "Do Tobi Like to bite Cats? ",
-    answers: ["Yes", "No", "Only human", "Only dog"],
-    correct: 3,
-  },
-  {
-    question: "The more you take, the more you leave behind. What am I?",
-    answers: ["Footsteps", "Money", "Time", "Space"],
-    correct: 0,
-  },
-  {
     question: "What tastes much better than it smells?",
     answers: ["Yogurt", "Lanka", "Toungue", "Nose"],
     correct: 2,
   },
-  {
-    question: "What was at the bottom of the letter?",
-    answers: ["Jb", "Aj", "ImGAy", "Jj"],
-    correct: 0,
-  },
-  {
-    question: "What's Dog owner name?",
-    answers: ["Momonga", "Momonari", "Momodora", "Momoniku"],
-    correct: 2,
-  },
-  {
-    question: "How long the dog been missing",
-    answers: ["1day", "2days", "3days", "4days"],
-    correct: 1,
-  },
+ 
+  
 ];
 
 window.onload = function () {
