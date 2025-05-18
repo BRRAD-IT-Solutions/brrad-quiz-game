@@ -84,7 +84,7 @@ function selectAnswer(answerIndex) {
   if (answerIndex === question.correct) {
     setButtonsEnabled(false);
     dogSide();
-    enemyHealthPoints -= 20;
+    enemyHealthPoints -= 100;
     loadHealth();
 
     if (enemyHealthPoints <= 0) {
@@ -106,16 +106,18 @@ function selectAnswer(answerIndex) {
 
   // hero healthbar functions
   else {
-    heroHealthPoints -= 20;
+    catSide();
+    setButtonsEnabled(false);
+    heroHealthPoints -= 100;
     loadHealth();
     if (heroHealthPoints <= 0) {
-      setTimeout(() => {
-        endGame();
-        alert("You Lose niiga!");
-      }, 500);
+      dogSideDeath();
       return;
     }
     alert("Wrong Answer nigga");
+    setTimeout(() => {
+      setButtonsEnabled(true);
+    }, 2500);
   }
   loadHealth();
 }
@@ -156,6 +158,9 @@ function restartGame() {
   Level = 0;
   heroHealthPoints = 100;
   enemyHealthPoints = 100;
+
+  document.getElementById("characterDog").style.display = "block";
+  document.getElementById("characterCat").style.display = "block";
 
   document.getElementById("end-page").style.display = "none";
   document.getElementById("level-page").style.display = "block";
@@ -238,6 +243,9 @@ function catSideDeath() {
       // Step 3: Cat gets death
       setTimeout(() => {
         characterCat.src = "/images/Character/cat/cat-dead.gif";
+        setTimeout(() => {
+          characterCat.style.display = "none"; // disappaer after death
+        }, 1000);
 
         // Step 4: Dog walks back
         setTimeout(() => {
@@ -260,6 +268,110 @@ function catSideDeath() {
           );
         }, 800); // Wait after attack before walking back
       }, 500); // Delay before cat "dies"
+    },
+    { once: true }
+  );
+}
+
+// cat movement
+function catSide() {
+  const characterCat = document.querySelector(".characterCat");
+  const characterDog = document.getElementById("characterDog");
+
+  // Step 1: Cat runs to the dog
+  characterCat.src = "/images/Character/cat/cat-run.gif";
+  characterCat.classList.remove("run-cat-animation", "return-cat-animation");
+  void characterCat.offsetWidth; // Trigger reflow
+  characterCat.classList.add("run-cat-animation");
+
+  // Step 2: Cat attacks
+  characterCat.addEventListener(
+    "animationend",
+    () => {
+      characterCat.src = "/images/Character/cat/cat-attack.gif";
+
+      // Step 3: Dog gets damaged
+      setTimeout(() => {
+        characterDog.src = "/images/Character/dog/dog-damage.gif";
+
+        // Step 3.1: Dog returns to idle
+        setTimeout(() => {
+          characterDog.src = "/images/Character/dog/dog-idle.gif";
+        }, 1000); // Adjust this to match your damage animation duration
+
+        // Step 4: Cat walks back
+        setTimeout(() => {
+          characterCat.src = "/images/Character/cat/cat-runBack.gif";
+          characterCat.classList.remove(
+            "run-cat-animation",
+            "return-cat-animation"
+          );
+          void characterCat.offsetWidth;
+          characterCat.classList.add("return-cat-animation");
+
+          // Step 5: Cat becomes idle again
+          characterCat.addEventListener(
+            "animationend",
+            () => {
+              characterCat.src = "/images/Character/cat/cat-idle.gif";
+              setButtonsEnabled(true);
+            },
+            { once: true }
+          );
+        }, 800); // Wait after attack before walking back
+      }, 500); // Delay before dog "takes hit"
+    },
+    { once: true }
+  );
+}
+
+function dogSideDeath() {
+  const characterCat = document.querySelector(".characterCat");
+  const characterDog = document.getElementById("characterDog");
+
+  // Step 1: Cat runs to the dog
+  characterCat.src = "/images/Character/cat/cat-run.gif";
+  characterCat.classList.remove("run-cat-animation", "return-cat-animation");
+  void characterCat.offsetWidth;
+  characterCat.classList.add("run-cat-animation");
+
+  // Step 2: Cat attacks
+  characterCat.addEventListener(
+    "animationend",
+    () => {
+      characterCat.src = "/images/Character/cat/cat-attack.gif";
+
+      // Step 3: Dog dies
+      setTimeout(() => {
+        characterDog.src = "/images/Character/dog/dog-dead.gif";
+        setTimeout(() => {
+          characterDog.style.display = "none"; // disappaer after death
+        }, 1000);
+
+        // Step 4: Cat walks back
+        setTimeout(() => {
+          characterCat.src = "/images/Character/cat/cat-runBack.gif";
+          characterCat.classList.remove(
+            "run-cat-animation",
+            "return-cat-animation"
+          );
+          void characterCat.offsetWidth;
+          characterCat.classList.add("return-cat-animation");
+
+          // Step 5: Cat becomes idle again
+          characterCat.addEventListener(
+            "animationend",
+            () => {
+              characterCat.src = "/images/Character/cat/cat-idle.gif";
+              setTimeout(() => {
+                alert("You lose!");
+                endGame();
+              }, 500);
+            },
+            { once: true }
+          );
+        }, 800); // Wait after attack before walking back
+      }, 500); // Delay before dog "dies"
     },
     { once: true }
   );
